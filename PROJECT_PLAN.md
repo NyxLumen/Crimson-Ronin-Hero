@@ -60,39 +60,32 @@ The hero loops through three continuous 8.0-second shots in fixed chronological 
 
 ---
 
-### Phase 1: Seamless Multi-Shot Video Engine
-- **Objectives:**
-  - Build a double-buffered `<video>` component (`ShotPlayer`) utilizing two swapping native video elements.
-  - Pre-buffer the upcoming shot while current shot is playing to eliminate black flashes and buffering delays.
-  - Implement seamless crossfade or clean hard-cut on timeupdate/ended.
-  - Handle mobile aspect ratios via deliberate CSS `object-fit: cover` and focal positioning without stretching.
-  - Handle browser autoplay rejection gracefully with instantaneous poster display.
-  - Implement `usePrefersReducedMotion` to pause or slow transitions when requested.
+### Phase 1: Full-Screen Video Foundation — [COMPLETE]
+- [x] **Single Background Video Element:** Implemented `BackgroundVideo` utilizing exactly one native `<video>` element.
+- [x] **Continuous 24-Second Composite:** Configured with `/media/video.mp4`, preserving internal cuts without JavaScript splicing.
+- [x] **Autoplay & Mute Policy:** Enabled `autoPlay`, `muted`, `loop`, `playsInline`, `preload="auto"` with graceful autoplay catch handler.
+- [x] **Visual Stability & Aspect Ratio:** Full viewport coverage via `object-fit: cover; object-position: center;`, zero black flashes or layout shifts.
+- [x] **Poster Fallback:** Reliable initial keyframe rendering using `/posters/shot-01-poster.jpg`.
+- [x] **Independent Background Music:** Implemented `BackgroundAudio` using a single `<audio>` element with `/media/track1.mp3`, looping independently of video loops.
+- [x] **Functional Sound Control:** User-gesture sound button with smooth GSAP exponential volume fading (0.0 ↔ 0.75), WCAG-accessible `aria-pressed` and `aria-label`.
+- [x] **Viewport Shell:** Responsive media container with `overflow: hidden`, `100dvh` mobile viewport support, dark background, and subtle vignette overlay.
+- [x] **Reduced Motion & Accessibility:** Integrated `MotionControl` toggle allowing users to pause video motion; visible keyboard focus outlines.
+- [x] **Verification:** Production build (`npm run build`) and type check (`npm run type-check`) pass cleanly.
 
 ---
 
-### Phase 2: Autonomous Audio Engine & Sound Design
-- **Objectives:**
-  - Implement dedicated `AudioController` hook and component independent of video lifecycle.
-  - Initial state: muted audio element with preloaded metadata.
-  - Build accessible sound toggle button (`aria-label`, keyboard accessible, visual soundwave indicator).
-  - Implement smooth GSAP volume fading on toggle (fade in: 0.0 → 0.75 over 600ms; fade out: 0.75 → 0.0 over 400ms).
-  - Handle audio loop seamless looping and error recovery for unsupported formats.
-
----
-
-### Phase 3: Editorial Hero Composition & Typography
+### Phase 2: Editorial Hero Composition & Typography
 - **Objectives:**
   - Compose single-screen hero layout:
     - Top bar: Minimal brand mark `RONIN` + location/time coordinates.
     - Main center/offset typography: Hero title `RONIN` with generous letter tracking, Japanese kanji `深紅` subtitle.
-    - Bottom bar: Shot counter (`01 / 03`), current shot title, audio toggle, and ambient status.
+    - Bottom bar: Status indicator, audio toggle, and ambient status.
   - Subtle cinematic vignette overlay to enhance contrast without obscuring footage.
   - Responsive layout for desktop (16:9 widescreen focus) and mobile (portrait centered focal point).
 
 ---
 
-### Phase 4: Motion Choreography & GSAP Timelines
+### Phase 3: Motion Choreography & GSAP Timelines
 - **Objectives:**
   - Orchestrate delicate initial entrance timeline (title letter reveal, kanji fade, UI controls slide up).
   - Coordinate shot transition cues (smooth subtitle updates and shot counter shifts).
@@ -101,7 +94,7 @@ The hero loops through three continuous 8.0-second shots in fixed chronological 
 
 ---
 
-### Phase 5: Production Polish, Performance & Accessibility Verification
+### Phase 4: Production Polish, Performance & Accessibility Verification
 - **Objectives:**
   - Lighthouse performance audit: verify LCP optimization (Shot 1 poster prioritized with `<link rel="preload">`).
   - Full keyboard navigation test (`Tab`, `Space`, `Enter` on sound toggle and controls).

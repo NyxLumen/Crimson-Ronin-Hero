@@ -1,12 +1,8 @@
 import React from 'react';
-import { MediaAuditOverview } from './components/MediaAuditOverview';
+import { ViewportShell } from './components/ViewportShell';
 
 export const App: React.FC = () => {
-  return (
-    <main style={{ minHeight: '100vh', backgroundColor: 'var(--color-bg-base)' }}>
-      <MediaAuditOverview />
-    </main>
-  );
+  return <ViewportShell />;
 };
 
 export default App;

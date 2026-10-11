@@ -1,0 +1,161 @@
+/**
+ * RONIN Phase 1 — Viewport Shell & Full-Screen Video Styling
+ */
+
+.viewport-shell {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: var(--color-bg-base);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+}
+
+/* Background video container */
+.video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--color-bg-base);
+  z-index: var(--z-video-underlay, 1);
+}
+
+.background-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  background-color: var(--color-bg-base);
+  transition: opacity 0.6s ease;
+}
+
+.background-video.is-loading {
+  opacity: 0.95;
+}
+
+/* Subtle, restrained cinematic vignette overlay for contrast and atmosphere */
+.vignette-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(11, 8, 9, 0.05) 0%,
+    rgba(11, 8, 9, 0.25) 55%,
+    rgba(11, 8, 9, 0.6) 88%,
+    rgba(11, 8, 9, 0.8) 100%
+  );
+}
+
+/* Fallback poster representation if video fails */
+.video-fallback-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1;
+}
+
+/* Phase 1 Controls bar (bottom bar for sound and motion pause) */
+.phase1-controls-bar {
+  position: relative;
+  z-index: 10;
+  margin-top: auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .phase1-controls-bar {
+    padding: 1rem 1.25rem;
+  }
+}
+
+.control-pill-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Restrained, editorial interactive control button */
+.editorial-control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  background: rgba(18, 13, 16, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 2px;
+  color: var(--color-ivory-warm);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.editorial-control-btn:hover {
+  background: rgba(36, 11, 17, 0.85);
+  border-color: var(--color-border-vermilion);
+  color: var(--color-ivory-light);
+}
+
+.editorial-control-btn:focus-visible {
+  outline: 2px solid var(--color-vermilion-accent);
+  outline-offset: 2px;
+}
+
+.editorial-control-btn.is-active {
+  border-color: var(--color-vermilion-muted);
+  color: var(--color-ivory-light);
+}
+
+/* Status indicator dot */
+.status-indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-ivory-dim);
+  transition: background-color 0.3s ease;
+}
+
+.status-indicator-dot.is-active {
+  background-color: var(--color-vermilion-accent);
+  box-shadow: 0 0 6px var(--color-vermilion-glow);
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
