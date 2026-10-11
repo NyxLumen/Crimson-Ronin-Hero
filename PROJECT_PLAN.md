@@ -74,14 +74,15 @@ The hero loops through three continuous 8.0-second shots in fixed chronological 
 
 ---
 
-### Phase 2: Editorial Hero Composition & Typography
-- **Objectives:**
-  - Compose single-screen hero layout:
-    - Top bar: Minimal brand mark `RONIN` + location/time coordinates.
-    - Main center/offset typography: Hero title `RONIN` with generous letter tracking, Japanese kanji `深紅` subtitle.
-    - Bottom bar: Status indicator, audio toggle, and ambient status.
-  - Subtle cinematic vignette overlay to enhance contrast without obscuring footage.
-  - Responsive layout for desktop (16:9 widescreen focus) and mobile (portrait centered focal point).
+### Phase 2: Editorial Hero Composition & Typography — [COMPLETE]
+- [x] **Main Title (`RONIN`):** Implemented in `Cinzel` serif, warm ivory (`#EEE6DC`), responsive `clamp(3rem, 7.5vw, 6.25rem)`, balanced `0.22em` tracking and matching `text-indent`. Positioned asymmetrically in the left quadrant to leave the central ronin silhouette and crimson sun completely unobstructed.
+- [x] **Japanese Subtitle (`深紅`):** Rendered in authentic `Shippori Mincho` in muted vermilion (`#B83A2C`), placed directly beneath `RONIN` with `0.3em` letter-spacing and clear subordinate visual hierarchy.
+- [x] **Editorial Tagline (`THE ART OF STILLNESS`):** Monospaced in `Space Mono`, tracked uppercase, providing a serene typographic anchor.
+- [x] **Top Identity & Study Label:** Minimal top-left brandmark (`R / 深紅`) and top-right archival label (`A VISUAL STUDY · 001`).
+- [x] **24-Second Sequence Progress Indicator:** Implemented `PlaybackProgress` at the absolute viewport bottom (2px), directly synchronized with `video.currentTime` and `video.duration`, resetting smoothly on loop with accessible `role="progressbar"`.
+- [x] **Local Typography & Zero FOUT:** Locally served TTF fonts in `public/fonts/` (`Cinzel`, `Shippori Mincho`, `Space Mono`) with `@font-face` declarations in `typography.css`.
+- [x] **Responsive Desktop & Mobile Layouts:** Verified across desktop (1920×1080) and mobile (390×844) viewport captures. Text shadows preserve legibility across shifting video frames.
+- [x] **Verification:** `npm run type-check` (0 errors) and `npm run build` (0 warnings/errors) verified.
 
 ---
 

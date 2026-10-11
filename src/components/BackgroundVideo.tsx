@@ -6,6 +6,7 @@ interface BackgroundVideoProps {
   readonly posterSrc?: string;
   readonly isPaused?: boolean;
   readonly onPlaybackStateChange?: (isPlaying: boolean) => void;
+  readonly onProgress?: (progressPercent: number, currentTime: number, duration: number) => void;
 }
 
 export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
@@ -13,6 +14,7 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
   posterSrc = '/posters/shot-01-poster.jpg',
   isPaused = false,
   onPlaybackStateChange,
+  onProgress,
 }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasError, setHasError] = useState<boolean>(false);
@@ -79,6 +81,13 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
     setIsLoaded(true);
   }, []);
 
+  const handleTimeUpdate = useCallback(() => {
+    const video = videoRef.current;
+    if (!video || !video.duration) return;
+    const progressPercent = (video.currentTime / video.duration) * 100;
+    onProgress?.(progressPercent, video.currentTime, video.duration);
+  }, [onProgress]);
+
   const handleError = useCallback(() => {
     console.error(`[RONIN] Failed to load background video from ${src}`);
     setHasError(true);
@@ -127,6 +136,7 @@ export const BackgroundVideo: React.FC<BackgroundVideoProps> = ({
         playsInline
         preload="auto"
         onCanPlay={handleCanPlay}
+        onTimeUpdate={handleTimeUpdate}
         onError={handleError}
         className={`background-video ${!isLoaded ? 'is-loading' : ''}`}
       />

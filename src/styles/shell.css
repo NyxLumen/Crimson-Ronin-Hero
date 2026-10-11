@@ -1,5 +1,5 @@
 /**
- * RONIN Phase 1 — Viewport Shell & Full-Screen Video Styling
+ * RONIN Phase 2 — Editorial Hero Composition & Viewport Shell Styling
  */
 
 .viewport-shell {
@@ -52,11 +52,11 @@
   pointer-events: none;
   z-index: 2;
   background: radial-gradient(
-    ellipse at center,
-    rgba(11, 8, 9, 0.05) 0%,
-    rgba(11, 8, 9, 0.25) 55%,
-    rgba(11, 8, 9, 0.6) 88%,
-    rgba(11, 8, 9, 0.8) 100%
+    ellipse at 50% 50%,
+    rgba(11, 8, 9, 0) 25%,
+    rgba(11, 8, 9, 0.22) 65%,
+    rgba(11, 8, 9, 0.58) 90%,
+    rgba(11, 8, 9, 0.78) 100%
   );
 }
 
@@ -71,21 +71,73 @@
   z-index: 1;
 }
 
-/* Phase 1 Controls bar (bottom bar for sound and motion pause) */
-.phase1-controls-bar {
+/* 1. Top Editorial Bar */
+.editorial-top-bar {
   position: relative;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(1.75rem, 4.5vw, 3.25rem) clamp(1.5rem, 6vw, 5.5rem);
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .editorial-top-bar {
+    padding: 1.25rem 1.25rem 0.5rem;
+  }
+}
+
+/* 2. Main Title Editorial Block */
+.editorial-title-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 clamp(1.5rem, 6vw, 5.5rem);
   margin-top: auto;
-  padding: 1.5rem 2rem;
+  margin-bottom: auto;
+  pointer-events: none; /* Allows click-through while keeping text selectable if needed */
+}
+
+@media (max-width: 768px) {
+  .editorial-title-container {
+    margin-top: 1rem;
+    margin-bottom: auto;
+    padding: 0 1.25rem;
+  }
+}
+
+/* 3. Bottom Controls Bar */
+.editorial-bottom-bar {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  padding: clamp(1.5rem, 3.5vw, 2.75rem) clamp(1.5rem, 6vw, 5.5rem);
+  margin-top: auto;
+  pointer-events: auto;
 }
 
 @media (max-width: 640px) {
-  .phase1-controls-bar {
-    padding: 1rem 1.25rem;
+  .editorial-bottom-bar {
+    padding: 0.75rem 1.25rem 1.25rem;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .control-pill-group {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .editorial-control-btn {
+    padding: 0.38rem 0.75rem;
+    font-size: 0.67rem;
+    letter-spacing: 0.12em;
   }
 }
 
@@ -96,16 +148,16 @@
   flex-wrap: wrap;
 }
 
-/* Restrained, editorial interactive control button */
+/* Restrained, discreet editorial control button */
 .editorial-control-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.5rem 1rem;
-  background: rgba(18, 13, 16, 0.72);
+  padding: 0.45rem 0.95rem;
+  background: rgba(14, 10, 12, 0.68);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--color-border-subtle);
+  border: 1px solid rgba(238, 230, 220, 0.12);
   border-radius: 2px;
   color: var(--color-ivory-warm);
   font-family: var(--font-mono);
@@ -119,7 +171,7 @@
 
 .editorial-control-btn:hover {
   background: rgba(36, 11, 17, 0.85);
-  border-color: var(--color-border-vermilion);
+  border-color: rgba(184, 58, 44, 0.45);
   color: var(--color-ivory-light);
 }
 
@@ -145,6 +197,30 @@
 .status-indicator-dot.is-active {
   background-color: var(--color-vermilion-accent);
   box-shadow: 0 0 6px var(--color-vermilion-glow);
+}
+
+/* 4. Thin Progress Indicator at Viewport Bottom */
+.video-progress-track {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(238, 230, 220, 0.1);
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.video-progress-fill {
+  height: 100%;
+  background-color: var(--color-vermilion-muted);
+  transition: width 0.25s linear;
+  box-shadow: 0 0 8px rgba(184, 58, 44, 0.6);
+}
+
+.video-progress-fill.is-resetting {
+  transition: none;
 }
 
 /* Screen reader only utility */

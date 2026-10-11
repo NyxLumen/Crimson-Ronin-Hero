@@ -1,24 +1,101 @@
 /**
  * RONIN Typography System
- * Editorial typography, wide tracking for titles, authentic Japanese serif, understated mono labels.
+ * Editorial typography, Cinzel cinematic serif, authentic Japanese Shippori Mincho, Space Mono.
  */
 
+/* Local font declarations */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Cinzel-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Cinzel-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Shippori Mincho';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/ShipporiMincho-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Shippori Mincho';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/ShipporiMincho-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/SpaceMono-Regular.ttf') format('truetype');
+}
+
+/* Typography Utility Classes */
 .type-title-hero {
   font-family: var(--font-serif-cinematic);
+  font-size: clamp(3rem, 7.5vw, 6.25rem);
   font-weight: 400;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-ivory-warm);
-  line-height: 1.1;
-  text-indent: 0.38em; /* Offset letter-spacing on trailing edge */
+  line-height: 1.05;
+  text-indent: 0.22em; /* Optically balances trailing letter-spacing */
+  text-shadow: 0 4px 28px rgba(11, 8, 9, 0.95), 0 0 4px rgba(11, 8, 9, 0.7);
+  margin: 0;
 }
 
 .type-subtitle-jp {
   font-family: var(--font-serif-jp);
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
   font-weight: 500;
-  letter-spacing: 0.28em;
-  color: var(--color-vermilion-accent);
+  letter-spacing: 0.3em;
+  color: var(--color-vermilion-muted);
   line-height: 1.2;
+  text-shadow: 0 2px 16px rgba(11, 8, 9, 0.95), 0 0 3px rgba(11, 8, 9, 0.85);
+}
+
+.type-tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(0.68rem, 0.9vw, 0.82rem);
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-ivory-muted);
+  text-shadow: 0 2px 14px rgba(11, 8, 9, 0.95), 0 0 2px rgba(11, 8, 9, 0.8);
+}
+
+.type-identity-mark {
+  font-family: var(--font-serif-cinematic);
+  font-size: 0.92rem;
+  letter-spacing: 0.16em;
+  color: var(--color-ivory-warm);
+  text-shadow: 0 2px 10px rgba(11, 8, 9, 0.85);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.type-editorial-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ivory-muted);
+  text-shadow: 0 2px 10px rgba(11, 8, 9, 0.85);
 }
 
 .type-heading-section {
