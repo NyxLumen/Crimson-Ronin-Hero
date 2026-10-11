@@ -1,0 +1,60 @@
+/**
+ * RONIN Design Tokens
+ * Art direction: Cinematic, restrained, and editorial.
+ * Crimson sunsets, solitary ronin, warm ivory, deep burgundy, muted vermilion, dark near-black.
+ */
+
+:root {
+  /* Color Palette */
+  --color-bg-base: #0b0809;
+  --color-bg-surface: #140d10;
+  --color-bg-elevated: #1e1318;
+  --color-bg-overlay: rgba(11, 8, 9, 0.75);
+
+  --color-burgundy-deep: #240b11;
+  --color-burgundy-mid: #3d131d;
+  --color-burgundy-light: #591b29;
+
+  --color-vermilion-dark: #8c281e;
+  --color-vermilion-muted: #b83a2c;
+  --color-vermilion-accent: #cf4332;
+  --color-vermilion-glow: rgba(207, 67, 50, 0.22);
+
+  --color-ivory-light: #faf6f1;
+  --color-ivory-warm: #eee6dc;
+  --color-ivory-muted: #c2b8ae;
+  --color-ivory-dim: #7f746d;
+
+  --color-border-subtle: rgba(238, 230, 220, 0.08);
+  --color-border-medium: rgba(238, 230, 220, 0.16);
+  --color-border-vermilion: rgba(184, 58, 44, 0.35);
+
+  /* Typography */
+  --font-serif-cinematic: 'Cinzel', 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-serif-jp: 'Shippori Mincho', 'Noto Serif JP', serif;
+  --font-mono: 'Space Mono', 'SFMono-Regular', 'Menlo', monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  /* Transitions */
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 180ms var(--ease-cinematic);
+  --transition-normal: 360ms var(--ease-cinematic);
+  --transition-slow: 750ms var(--ease-cinematic);
+
+  /* Z-Index Hierarchy */
+  --z-video-underlay: 1;
+  --z-overlay-vignette: 5;
+  --z-ui-content: 10;
+  --z-ui-controls: 20;
+  --z-modal-boundary: 50;
+}

@@ -1,0 +1,55 @@
+/**
+ * RONIN Typography System
+ * Editorial typography, wide tracking for titles, authentic Japanese serif, understated mono labels.
+ */
+
+.type-title-hero {
+  font-family: var(--font-serif-cinematic);
+  font-weight: 400;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--color-ivory-warm);
+  line-height: 1.1;
+  text-indent: 0.38em; /* Offset letter-spacing on trailing edge */
+}
+
+.type-subtitle-jp {
+  font-family: var(--font-serif-jp);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: var(--color-vermilion-accent);
+  line-height: 1.2;
+}
+
+.type-heading-section {
+  font-family: var(--font-serif-cinematic);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ivory-warm);
+  font-size: 1.25rem;
+}
+
+.type-label-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ivory-muted);
+}
+
+.type-body {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-ivory-muted);
+}
+
+.type-code-inline {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-vermilion-accent);
+  background: rgba(184, 58, 44, 0.12);
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+}
