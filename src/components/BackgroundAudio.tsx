@@ -117,8 +117,8 @@ export const BackgroundAudio: React.FC<BackgroundAudioProps> = ({
         {isMuted ? (
           <svg
             className="sound-icon-svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -134,8 +134,8 @@ export const BackgroundAudio: React.FC<BackgroundAudioProps> = ({
         ) : (
           <svg
             className="sound-icon-svg"
-            width="20"
-            height="20"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

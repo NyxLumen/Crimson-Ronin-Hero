@@ -8,8 +8,8 @@ import React from 'react';
 export const EditorialStatement: React.FC = () => {
   return (
     <aside className="editorial-statement" aria-label="Editorial inscription">
-      <p className="statement-line">BETWEEN THE LAST LIGHT</p>
-      <p className="statement-line">AND THE FIRST SILENCE.</p>
+      <p className="statement-line">Between the last light</p>
+      <p className="statement-line">and the first silence.</p>
     </aside>
   );
 };

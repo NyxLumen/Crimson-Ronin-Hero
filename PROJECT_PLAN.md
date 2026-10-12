@@ -117,6 +117,16 @@ The hero loops through three continuous 8.0-second shots in fixed chronological 
 
 ---
 
+### Phase 2D: Typography Hierarchy Refinement — [COMPLETE]
+- [x] **Main Title (`RONIN`):** Tuned Japan Ramen display masthead down by ~8% to `clamp(4.4rem, 11.8vw, 10.1rem)` (mobile: `clamp(2.85rem, 13.5vw, 4.8rem)`), restoring negative space and breathing room while preserving sculptural letterforms, `line-height: 0.88`, and `0.05em` tracking. Remains strictly confined to the left quadrant, ending at ~39% viewport width.
+- [x] **Japanese Subtitle (`深紅`):** Tightened vertical separation directly beneath `RONIN` with `margin-top: clamp(0.2rem, 0.5vw, 0.45rem)` in Shippori Mincho Medium (`clamp(1.5rem, 3.2vw, 2.75rem)`), forming a cohesive, aligned title lockup in pale blush (`#F4E8E6`) with `0.28em` tracking.
+- [x] **Right-Side Editorial Counterpoint:** Replaced Japan Ramen on `BETWEEN THE LAST LIGHT / AND THE FIRST SILENCE.` with authentic Japanese literary serif **Shippori Mincho** (`font-family: var(--font-serif-jp)`). Switched to sentence case (*Between the last light / and the first silence.*) at `clamp(0.95rem, 1.35vw, 1.45rem)` with generous line leading (`1.75`), subtle letter-spacing (`0.06em`), and pale blush coloration. Eliminates visual competition with `RONIN` while providing a serene poetic counterpoint.
+- [x] **Placement & Video Clearance:** Maintained clear right-aligned positioning (`right: clamp(1.5rem, 6vw, 5.5rem)`, `bottom: clamp(5.25rem, 11vh, 8.25rem)`) over dark water reflections, fully unobstructed by the ronin, sword, sun, or pine tree across all 3 shots.
+- [x] **Sound Control Refinement:** Modestly increased visible speaker icon SVG from 20×20px to 24×24px with a 48×48px accessible circular click target (`padding: 12px`), distinct muted/active states, and full GSAP exponential volume fading (0.0 ↔ 0.75).
+- [x] **Verification & Quality Gate:** Verified across Shot 1, Shot 2, and Shot 3 on desktop (1920×1080) and mobile (390×844) viewports. Full audio interaction test verified. `npm run type-check` (0 errors) and `npm run build` (0 warnings/errors) verified.
+
+---
+
 ### Phase 3: Motion Choreography & GSAP Timelines
 - **Objectives:**
   - Orchestrate delicate initial entrance timeline (title letter reveal, kanji fade, UI controls slide up).
