@@ -115,7 +115,7 @@ export const MediaAuditOverview: React.FC = () => {
       {/* Video Shots Sequence Audit */}
       <section aria-labelledby="shots-heading">
         <div style={{ marginBottom: '1.25rem' }}>
-          <span className="type-label-meta">Video Playback Sequence (Target: 3 Consecutive Shots)</span>
+          <span className="type-label-meta">Video Playback Sequence (Verified Master Composite)</span>
           <h2 id="shots-heading" className="type-heading-section" style={{ marginTop: '0.25rem' }}>
             Verified Video Shot Inventory
           </h2>

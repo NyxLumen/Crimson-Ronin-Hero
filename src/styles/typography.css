@@ -1,40 +1,16 @@
 /**
- * RONIN Typography System — Phase 2B
- * High-fashion editorial Didone typography (Bodoni Moda),
- * authentic Japanese Shippori Mincho, Space Mono.
+ * RONIN Typography System — Phase 2C
+ * Japan Ramen Display Typography, Shippori Mincho Japanese Serif, Space Mono.
  */
 
 /* 1. Local font declarations */
 @font-face {
-  font-family: 'Bodoni Moda';
+  font-family: 'Japan Ramen';
   font-style: normal;
   font-weight: 400 900;
   font-display: swap;
-  src: url('/fonts/BodoniModa-VariableFont_opsz,wght.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Bodoni Moda';
-  font-style: italic;
-  font-weight: 400 900;
-  font-display: swap;
-  src: url('/fonts/BodoniModa-Italic-VariableFont_opsz,wght.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Cinzel';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/Cinzel-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Cinzel';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/Cinzel-SemiBold.ttf') format('truetype');
+  src: url('/fonts/JapanRamen.otf') format('opentype'),
+       url('/fonts/JAPAN%20RAMEN.otf') format('opentype');
 }
 
 @font-face {
@@ -61,36 +37,35 @@
   src: url('/fonts/SpaceMono-Regular.ttf') format('truetype');
 }
 
-/* 2. Main Title Hero Typography */
+/* 2. Main Title Hero Typography — Substantially Larger Japan Ramen Masthead */
 .type-title-hero {
-  font-family: var(--font-serif-cinematic);
-  font-size: clamp(3.85rem, 9.2vw, 7.85rem);
-  font-weight: 600;
-  font-variation-settings: 'opsz' 96, 'wght' 600;
+  font-family: var(--font-display-ramen);
+  font-size: clamp(4.8rem, 13vw, 11rem);
+  font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-ivory-light);
-  line-height: 0.95;
-  text-indent: 0.05em; /* Optically balances trailing letter-spacing */
-  text-shadow: 0 4px 32px rgba(11, 8, 9, 0.95), 0 0 8px rgba(11, 8, 9, 0.65);
+  line-height: 0.88;
+  text-indent: 0.05em;
+  text-shadow: 0 4px 36px rgba(11, 8, 9, 0.95), 0 0 10px rgba(11, 8, 9, 0.7);
   margin: 0;
 }
 
-/* 3. Japanese Subtitle: 深紅 (Crimson) — Warm Ivory / Pale Blush */
+/* 3. Japanese Subtitle: 深紅 (Crimson) — Substantially Larger Pale Blush Kanji */
 .type-subtitle-jp {
   font-family: var(--font-serif-jp);
-  font-size: clamp(1.2rem, 2.4vw, 1.85rem);
+  font-size: clamp(1.8rem, 3.8vw, 3.25rem);
   font-weight: 500;
   letter-spacing: 0.32em;
   color: var(--color-blush-pale);
-  line-height: 1.2;
-  margin-top: clamp(0.6rem, 1.2vw, 1rem);
-  text-shadow: 0 2px 20px rgba(11, 8, 9, 0.95), 0 0 5px rgba(11, 8, 9, 0.85);
+  line-height: 1.15;
+  margin-top: clamp(0.75rem, 1.5vw, 1.35rem);
+  text-shadow: 0 2px 24px rgba(11, 8, 9, 0.95), 0 0 6px rgba(11, 8, 9, 0.85);
 }
 
 /* 4. Top Identity Mark: R / 深紅 */
 .type-identity-mark {
-  font-family: var(--font-serif-cinematic);
+  font-family: var(--font-sans);
   font-size: 0.95rem;
   letter-spacing: 0.14em;
   color: var(--color-ivory-warm);
@@ -101,8 +76,9 @@
 }
 
 .identity-mark-letter {
-  font-weight: 600;
-  font-variation-settings: 'opsz' 48, 'wght' 600;
+  font-family: var(--font-display-ramen);
+  font-size: 1.3rem;
+  line-height: 1;
 }
 
 .identity-mark-slash {
@@ -114,7 +90,7 @@
 .identity-mark-jp {
   font-family: var(--font-serif-jp);
   color: var(--color-blush-pale);
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   letter-spacing: 0.16em;
 }
 
@@ -128,7 +104,7 @@
   text-shadow: 0 2px 10px rgba(11, 8, 9, 0.85);
 }
 
-/* 6. Right-Side Editorial Statement */
+/* 6. Right-Side Editorial Statement — Substantially Larger Deliberate Hierarchy */
 .editorial-statement {
   position: fixed;
   right: clamp(1.5rem, 6vw, 5.5rem);
@@ -142,19 +118,28 @@
 }
 
 .statement-line {
-  font-family: var(--font-serif-cinematic);
-  font-size: clamp(0.92rem, 1.35vw, 1.25rem);
-  font-weight: 500;
-  font-variation-settings: 'opsz' 48, 'wght' 500;
-  letter-spacing: 0.15em;
+  font-family: var(--font-display-ramen);
+  font-size: clamp(1.25rem, 2.2vw, 2.15rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-blush-pale);
-  line-height: 1.6;
-  text-shadow: 0 2px 20px rgba(11, 8, 9, 0.95), 0 0 6px rgba(11, 8, 9, 0.75);
+  line-height: 1.35;
+  text-shadow: 0 3px 24px rgba(11, 8, 9, 0.95), 0 0 8px rgba(11, 8, 9, 0.75);
   margin: 0;
 }
 
 @media (max-width: 768px) {
+  .type-title-hero {
+    font-size: clamp(3.2rem, 15vw, 5.5rem);
+    line-height: 0.9;
+  }
+
+  .type-subtitle-jp {
+    font-size: clamp(1.35rem, 5.5vw, 2.1rem);
+    margin-top: 0.5rem;
+  }
+
   .editorial-statement {
     position: static;
     right: auto;
@@ -166,21 +151,21 @@
   }
 
   .statement-line {
-    font-size: clamp(0.7rem, 2.8vw, 0.82rem);
-    letter-spacing: 0.12em;
-    line-height: 1.5;
+    font-size: clamp(0.78rem, 3.2vw, 0.95rem);
+    letter-spacing: 0.06em;
+    line-height: 1.4;
     color: var(--color-blush-pale);
   }
 }
 
 /* Utility Types */
 .type-heading-section {
-  font-family: var(--font-serif-cinematic);
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-family: var(--font-display-ramen);
+  font-weight: 400;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-ivory-warm);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
 
 .type-label-meta {

@@ -98,6 +98,25 @@ The hero loops through three continuous 8.0-second shots in fixed chronological 
 
 ---
 
+### Phase 2C: Japan Ramen Typography & Asset Cleanup — [COMPLETE]
+- [x] **Primary Display Font (Japan Ramen):** Located and integrated `JAPAN RAMEN.otf` (MaknaStudio, OpenType CFF display font) into `public/fonts/` as `JapanRamen.otf` and `JAPAN RAMEN.otf`. Configured `@font-face` in `typography.css`.
+- [x] **Typographic Masthead (`RONIN`):** Substantially scaled to `clamp(4.8rem, 13vw, 11rem)` with `line-height: 0.88`, `letter-spacing: 0.05em`, warm ivory coloring (`#FAF6F1`), and deep ambient text shadows. Sits boldly in the left quadrant, terminating at ~39% viewport width to ensure 0% overlap with the ronin silhouette across all video frames.
+- [x] **Japanese Subtitle (`深紅`):** Scaled to `clamp(1.8rem, 3.8vw, 3.25rem)` in pale blush (`#F4E8E6`) using `Shippori Mincho` Medium, maintaining authentic Kanji typography with `0.32em` tracking directly beneath `RONIN`.
+- [x] **Right-Side Editorial Statement:** Scaled to `clamp(1.25rem, 2.2vw, 2.15rem)` in Japan Ramen with pale blush coloration. Fixed in the lower-right quadrant on desktop (`right: clamp(1.5rem, 6vw, 5.5rem)`, `bottom: clamp(5.25rem, 12vh, 8.5rem)`), resting over dark water and remaining clear of the ronin, hat, sword, sun, and pine foliage. On mobile, cleanly stacks beneath `深紅` with ample clearance above the ronin's conical hat.
+- [x] **Archival Header & Mark:** Kept `R / 深紅` understated in the top-left (with `R` rendered in Japan Ramen) and `AN EXPERIMENT IN STILLNESS` in monospace in the top-right.
+- [x] **Asset Audit & Removal of Redundant Files:**
+  - Audited all files across root, `public/`, and `src/`.
+  - Safely deleted 3 root duplicate media files: `./video.mp4`, `./track1.mp3`, `./track2.mp3` (~28.8 MB).
+  - Safely deleted 3 unused individual video shot files: `public/media/Animating_still_water_...mp4`, `public/media/ronin-shot-01-dolly-zoom_...mp4`, `public/media/Wind_moving_pine_tree_foliage_...mp4` (~15.2 MB).
+  - Safely deleted 1 unused audio alternate take: `public/media/track2.mp3` (~1.4 MB).
+  - Safely deleted 4 unused poster and concept images: `public/posters/ronin-concept.png`, `shot-02-concept.jpg`, `shot-02-poster.jpg`, `shot-03-poster.jpg` (~2.75 MB).
+  - Safely deleted 4 superseded font files: `public/fonts/Cinzel-Regular.ttf`, `Cinzel-SemiBold.ttf`, `BodoniModa-VariableFont_opsz,wght.ttf`, `BodoniModa-Italic-VariableFont_opsz,wght.ttf` (~423 KB).
+  - Total reclaimed storage: **~48.6 MB**.
+- [x] **Manifest Synchronization:** Updated `src/config/mediaManifest.ts` to reflect the active composite sequence (`/media/video.mp4`), primary audio (`/media/track1.mp3`), and initial frame poster (`/posters/shot-01-poster.jpg`). Zero broken references remaining.
+- [x] **Verification & Quality Gate:** Type check (`tsc --noEmit`) and production build (`vite build`) passed with 0 errors.
+
+---
+
 ### Phase 3: Motion Choreography & GSAP Timelines
 - **Objectives:**
   - Orchestrate delicate initial entrance timeline (title letter reveal, kanji fade, UI controls slide up).

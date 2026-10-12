@@ -31,7 +31,8 @@
   --color-border-vermilion: rgba(184, 58, 44, 0.35);
 
   /* Typography */
-  --font-serif-cinematic: 'Bodoni Moda', 'Didot', 'Bodoni MT', serif;
+  --font-display-ramen: 'Japan Ramen', 'Shippori Mincho', sans-serif;
+  --font-serif-cinematic: 'Japan Ramen', 'Shippori Mincho', sans-serif;
   --font-serif-jp: 'Shippori Mincho', 'Noto Serif JP', serif;
   --font-mono: 'Space Mono', 'SFMono-Regular', 'Menlo', monospace;
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
