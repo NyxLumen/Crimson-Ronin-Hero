@@ -24,13 +24,14 @@
   --color-ivory-warm: #eee6dc;
   --color-ivory-muted: #c2b8ae;
   --color-ivory-dim: #7f746d;
+  --color-blush-pale: #f4e8e6;
 
   --color-border-subtle: rgba(238, 230, 220, 0.08);
   --color-border-medium: rgba(238, 230, 220, 0.16);
   --color-border-vermilion: rgba(184, 58, 44, 0.35);
 
   /* Typography */
-  --font-serif-cinematic: 'Cinzel', 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-serif-cinematic: 'Bodoni Moda', 'Didot', 'Bodoni MT', serif;
   --font-serif-jp: 'Shippori Mincho', 'Noto Serif JP', serif;
   --font-mono: 'Space Mono', 'SFMono-Regular', 'Menlo', monospace;
   --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;

@@ -86,6 +86,18 @@ The hero loops through three continuous 8.0-second shots in fixed chronological 
 
 ---
 
+### Phase 2B: Experimental Editorial Art Direction — [COMPLETE]
+- [x] **Main Display Font (Bodoni Moda):** Replaced classical Cinzel with high-contrast Didone serif `Bodoni Moda` (optical size 96, weight 600, restrained 0.05em tracking). Downloaded and locally served variable TTF font files (`BodoniModa-VariableFont_opsz,wght.ttf` and `BodoniModa-Italic-VariableFont_opsz,wght.ttf`) in `public/fonts/` with zero FOUT.
+- [x] **Japanese Subtitle (`深紅`):** Updated from muted crimson to luminous pale blush (`#F4E8E6`), achieving stark sculptural clarity against dark crimson video frames while preserving authentic `Shippori Mincho` glyphs.
+- [x] **Motion Control Removal:** Removed the visible motion pause/play button and unused UI slots. Connected background video autoplay directly to system `prefers-reduced-motion` via `usePrefersReducedMotion` hook.
+- [x] **Minimalist Speaker Icon:** Replaced rectangular text button (`Sound // Off`) with a discreet, borderless speaker icon button in the bottom-right corner. Features distinct muted (speaker with slash/cross) and active (speaker with acoustic waves) inline SVGs, 44×44px touch target, WCAG-compliant `aria-pressed` / `aria-label`, and smooth GSAP volume fading (0.0 ↔ 0.75).
+- [x] **Archival Study Header:** Updated top-right label from `A VISUAL STUDY · 001` to restrained, carefully tracked `AN EXPERIMENT IN STILLNESS`. Preserved understated `R / 深紅` top-left mark with harmonized pale blush kanji.
+- [x] **Right-Side Editorial Statement:** Integrated `BETWEEN THE LAST LIGHT / AND THE FIRST SILENCE.` positioned in the lower-right quadrant on desktop (over dark water, clear of the ronin, hat, sword, and pine tree across all 3 composite shots) and cleanly integrated beneath the title block on mobile.
+- [x] **Multi-Shot & Multi-Viewport Verification:** Programmatically verified across Shot 1 (Approach), Shot 2 (Vista), and Shot 3 (Pine Silhouette) on both desktop (1920×1080) and mobile (390×844) viewports. Verified zero horizontal overflow across 320px–2560px screen widths.
+- [x] **Build & Accessibility:** Production build and type checks verified with 0 errors.
+
+---
+
 ### Phase 3: Motion Choreography & GSAP Timelines
 - **Objectives:**
   - Orchestrate delicate initial entrance timeline (title letter reveal, kanji fade, UI controls slide up).
