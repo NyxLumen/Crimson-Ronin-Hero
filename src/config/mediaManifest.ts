@@ -19,8 +19,8 @@ export const MEDIA_MANIFEST: MediaManifest = {
       japaneseTitle: '深紅浪人',
       description: 'Continuous 3-shot cinematic montage (Dolly Approach, Island Vista, Twisted Pine) beneath the crimson sun',
       src: '/media/video.mp4',
+      webmSrc: '/media/video.webm',
       originalFilename: 'video.mp4',
-      posterSrc: '/posters/shot-01-poster.jpg',
       durationSeconds: 24.009,
       dimensions: {
         width: 1920,
@@ -32,8 +32,8 @@ export const MEDIA_MANIFEST: MediaManifest = {
         video: 'H.264 / AVC (High Profile, yuv420p)',
         audio: 'AAC (Stereo, 44100 Hz)',
       },
-      fileSizeBytes: 27015789,
-      md5Checksum: 'f7640728e8366aed19cf36f096c5fdd3',
+      fileSizeBytes: 26919525,
+      md5Checksum: '987cc849b558a5b882555f4b53bf0676',
     },
   ],
 
@@ -58,6 +58,7 @@ export const MEDIA_MANIFEST: MediaManifest = {
 
   composite: {
     src: '/media/video.mp4',
+    webmSrc: '/media/video.webm',
     originalFilename: 'video.mp4',
     durationSeconds: 24.009,
     dimensions: {
@@ -70,7 +71,13 @@ export const MEDIA_MANIFEST: MediaManifest = {
       video: 'H.264 / AVC (High Profile, yuv420p)',
       audio: 'AAC (Stereo, 44100 Hz)',
     },
-    fileSizeBytes: 27015789,
-    md5Checksum: 'f7640728e8366aed19cf36f096c5fdd3',
+    webmCodecs: {
+      video: 'VP9 Profile 0 (yuv420p, bt709)',
+      audio: 'Opus (Stereo, 48000 Hz)',
+    },
+    fileSizeBytes: 26919525,
+    webmFileSizeBytes: 13006694,
+    md5Checksum: '987cc849b558a5b882555f4b53bf0676',
+    webmMd5Checksum: '2b0694acdceec2e41e814f85aed66094',
   },
 };

@@ -22,8 +22,8 @@ export const ViewportShell: React.FC = () => {
     >
       {/* 1. Full-Screen Background Video */}
       <BackgroundVideo
-        src="/media/video.mp4"
-        posterSrc="/posters/shot-01-poster.jpg"
+        webmSrc="/media/video.webm"
+        mp4Src="/media/video.mp4"
         isPaused={prefersReducedMotion}
         onProgress={handleVideoProgress}
       />

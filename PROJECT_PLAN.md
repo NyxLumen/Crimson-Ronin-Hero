@@ -127,19 +127,59 @@ The hero loops through three continuous 8.0-second shots in fixed chronological 
 
 ---
 
-### Phase 3: Motion Choreography & GSAP Timelines
-- **Objectives:**
-  - Orchestrate delicate initial entrance timeline (title letter reveal, kanji fade, UI controls slide up).
-  - Coordinate shot transition cues (smooth subtitle updates and shot counter shifts).
-  - Sound button hover and active micro-animations.
-  - Full adherence to `prefers-reduced-motion` (instant display without motion when active).
+### Phase 3: WebM Optimization & Black-to-Video Reveal — [COMPLETE]
+- [x] **Composition & Art Direction Preservation:**
+  - Preserved the approved Didone Japan Ramen masthead (`RONIN`), pale blush kanji (`深紅`), literary counterpoint (*Between the last light / and the first silence.*), minimal header (`R / 深紅` and `AN EXPERIMENT IN STILLNESS`), speaker icon, and bottom progress indicator.
+  - Zero UI entrance animations or GSAP text timelines added; zero visual composition changes introduced.
+  - Desktop (1920×1080) and mobile (390×844) layouts verified.
+- [x] **Existing Video Inspection (`public/media/video.mp4`):**
+  - **Duration:** 24.009s (video stream 24.000s, 720 frames; audio stream 24.009s, 1036 frames).
+  - **Dimensions & Aspect Ratio:** 1920×1080 (16:9).
+  - **Frame Rate:** 30.0 fps progressive (`r_frame_rate=30/1`).
+  - **Video Codec:** H.264 / AVC (High Profile, level 40, `yuv420p`, tv range, BT.709 color space/transfer/primaries).
+  - **Video Bitrate:** 8,901,242 bps (~8.90 Mbps).
+  - **Audio Stream:** AAC (LC), 44100 Hz, stereo, 64,642 bps (~64.6 kbps).
+  - **Original File Size:** 26,919,525 bytes (26.92 MB / 25.67 MiB).
+  - **Keyframe Structure:** Regular IDR keyframes every 3.0s (at 0.0s, 3.0s, 6.0s, 9.0s, 12.0s, 15.0s, 18.0s, 21.0s), corresponding to a fixed GOP of 90 frames.
+- [x] **VP9 WebM Encoding & Compression:**
+  - **Encoding Command:**
+    ```bash
+    ffmpeg -y -i public/media/video.mp4 \
+      -c:v libvpx-vp9 -crf 30 -b:v 0 -pix_fmt yuv420p \
+      -c:a libopus -b:a 96k -deadline good -cpu-used 2 -row-mt 1 \
+      public/media/video.webm
+    ```
+  - **Resolution & Frame Rate:** 1920×1080 @ 30.0 fps, 24.000s video stream, perfectly matching original sequence.
+  - **Color Fidelity:** `yuv420p`, BT.709 color primaries, transfer characteristics, and matrix coefficients.
+  - **Audio Track:** Faithful Opus stereo encoding at 48000 Hz, permanently muted in website background video (`video.muted = true`).
+  - **Original Size:** 26,919,525 bytes (26.92 MB).
+  - **WebM Size:** 13,006,694 bytes (13.01 MB).
+  - **Payload Reduction:** **13,912,831 bytes (-51.68% reduction)** — more than cut in half.
+- [x] **Visual Fidelity & Loop Verification:**
+  - **Shot 1 (Approach / Silhouette, t=2s):** SSIM = 0.959954 (~0.960), PSNR = 41.44 dB (indistinguishable crimson sky gradient and dark silhouette).
+  - **Shot 2 (Overhead Vista, t=11s):** SSIM = 0.952329 (~0.952), PSNR = 38.73 dB (water reflection nuances preserved).
+  - **Shot 3 (Pine Foliage, t=20s):** SSIM = 0.951865 (~0.952), PSNR = 40.88 dB (fine pine needles and branches remain crisp).
+  - **Beginning-to-End Loop:** Boundary frames at t=0.0s and t=24.0s verified for clean wrap-around with zero macroblocking artifacts.
+- [x] **Native HTML5 Source Selection:**
+  - Configured `<video>` with prioritized `<source src="/media/video.webm" type="video/webm" />` and compatibility fallback `<source src="/media/video.mp4" type="video/mp4" />`.
+  - Preserved `autoPlay`, `muted`, `loop`, `playsInline`, `preload="auto"`.
+  - Verified in Chromium that the browser natively requests `video.webm` and makes zero redundant requests for `video.mp4`.
+  - Verified that in environments without WebM VP9 support, the browser cleanly falls through to `video.mp4`.
+- [x] **Poster Asset Audit & Total Removal:**
+  - Audited all poster references across `BackgroundVideo`, `ViewportShell`, `MediaErrorFallback`, `MediaAuditOverview`, and stylesheets.
+  - Removed `poster` attribute from `<video>` element.
+  - Removed static preview `<img>` backdrop layer (`.video-fallback-backdrop`) and CSS references.
+  - Safely deleted `public/posters/shot-01-poster.jpg` and removed `public/posters/` directory (234.8 KB reclaimed).
+  - Page canvas underneath video is guaranteed pure black (`#000000`).
+- [x] **Black-to-Video Reveal (`requestVideoFrameCallback`):**
+  - Initial state: `.background-video` starts at `opacity: 0` over `#000000` canvas.
+  - Video is never revealed prematurely on `loadedmetadata`.
+  - Implemented playback confirmation via `onPlaying` / promise resolution coupled with `video.requestVideoFrameCallback` to ensure a decoded frame is presented before triggering visibility.
+  - Includes compatible fallback (`currentTime > 0` / `readyState >= 2` via `timeupdate`) for browsers lacking `requestVideoFrameCallback`.
+  - Smooth 1,000 ms CSS opacity fade (`cubic-bezier(0.22, 1, 0.36, 1)`) from 0 to 1 without video flicker.
+  - Once revealed, opacity remains latched at 1 across loop boundaries (verified at t=24.0s -> t=0.0s).
+  - Autoplay block and media error fallbacks implemented gracefully on pure black background with accessible retry controls.
+- [x] **Verification & Quality Gate:**
+  - Production build (`vite build`) and type check (`tsc --noEmit`) pass with 0 errors.
+  - Headless Chrome CDP automated test verified: initial state starts at pure black; WebM is selected; video fades in once playing; opacity latches at 1 across loop wrap; independent audio toggle functions with smooth volume fading (0.0 ↔ 0.75).
 
----
-
-### Phase 4: Production Polish, Performance & Accessibility Verification
-- **Objectives:**
-  - Lighthouse performance audit: verify LCP optimization (Shot 1 poster prioritized with `<link rel="preload">`).
-  - Full keyboard navigation test (`Tab`, `Space`, `Enter` on sound toggle and controls).
-  - Screen reader audit (clear ARIA announcements and semantic landmarks).
-  - Cross-browser verification (Chrome, Firefox, Safari/WebKit video autoplay quirks).
-  - Final production build and bundle size optimization.

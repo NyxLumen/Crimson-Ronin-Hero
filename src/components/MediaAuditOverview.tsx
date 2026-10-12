@@ -141,11 +141,13 @@ export const MediaAuditOverview: React.FC = () => {
               }}
             >
               <div style={{ position: 'relative', aspectRatio: '16/9', backgroundColor: '#000' }}>
-                <img
-                  src={shot.posterSrc}
-                  alt={`Poster for Shot ${shot.shotNumber}: ${shot.title}`}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                {shot.posterSrc && (
+                  <img
+                    src={shot.posterSrc}
+                    alt={`Poster for Shot ${shot.shotNumber}: ${shot.title}`}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                )}
                 <span
                   className="type-label-meta"
                   style={{

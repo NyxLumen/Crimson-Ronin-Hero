@@ -20,8 +20,9 @@ export interface VideoShot {
   readonly japaneseTitle: string;
   readonly description: string;
   readonly src: string;
+  readonly webmSrc?: string;
   readonly originalFilename: string;
-  readonly posterSrc: string;
+  readonly posterSrc?: string;
   readonly conceptSrc?: string;
   readonly durationSeconds: number;
   readonly dimensions: VideoDimensions;
@@ -49,13 +50,17 @@ export interface AudioTrack {
 
 export interface CompositeVideo {
   readonly src: string;
+  readonly webmSrc?: string;
   readonly originalFilename: string;
   readonly durationSeconds: number;
   readonly dimensions: VideoDimensions;
   readonly fps: number;
   readonly codecs: VideoCodecs;
+  readonly webmCodecs?: VideoCodecs;
   readonly fileSizeBytes: number;
+  readonly webmFileSizeBytes?: number;
   readonly md5Checksum: string;
+  readonly webmMd5Checksum?: string;
 }
 
 export interface MediaManifest {

@@ -3,14 +3,12 @@ import React from 'react';
 interface MediaErrorFallbackProps {
   readonly mediaType: 'video' | 'audio';
   readonly assetName: string;
-  readonly posterSrc?: string;
   readonly onRetry?: () => void;
 }
 
 export const MediaErrorFallback: React.FC<MediaErrorFallbackProps> = ({
   mediaType,
   assetName,
-  posterSrc,
   onRetry,
 }) => {
   return (
@@ -24,7 +22,7 @@ export const MediaErrorFallback: React.FC<MediaErrorFallbackProps> = ({
         alignItems: 'center',
         justifyContent: 'center',
         padding: '2rem',
-        backgroundColor: 'var(--color-burgundy-deep)',
+        backgroundColor: '#000000',
         border: '1px solid var(--color-border-vermilion)',
         borderRadius: '4px',
         color: 'var(--color-ivory-warm)',
@@ -33,21 +31,6 @@ export const MediaErrorFallback: React.FC<MediaErrorFallbackProps> = ({
         minHeight: '220px',
       }}
     >
-      {posterSrc && (
-        <img
-          src={posterSrc}
-          alt={`Poster fallback for ${assetName}`}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: 0.25,
-            filter: 'grayscale(60%)',
-          }}
-        />
-      )}
       <div style={{ position: 'relative', zIndex: 2, maxWidth: '480px' }}>
         <p className="type-label-meta" style={{ color: 'var(--color-vermilion-accent)', marginBottom: '0.5rem' }}>
           Media Playback Notice
@@ -60,7 +43,6 @@ export const MediaErrorFallback: React.FC<MediaErrorFallbackProps> = ({
         </h3>
         <p className="type-body" style={{ fontSize: '0.85rem', marginBottom: '1.25rem' }}>
           Unable to load asset <code className="type-code-inline">{assetName}</code>.
-          The visual layout preserves editorial spacing and poster fallbacks.
         </p>
         {onRetry && (
           <button
